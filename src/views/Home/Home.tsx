@@ -1,40 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { AllShowsResults } from "../../types/allShowsResults";
-import { getAllShows } from "../../services/tvMazeServices";
+import React, { useContext } from "react";
 import MovieDisplay from "../../components/MovieDisplay/MovieDisplay";
 import "./Home.css";
+import { StoreContext } from "../../store/StoreContext";
 
-interface AllShowsState {
-  loading: boolean;
-  showData: AllShowsResults[];
-  errorMessage: string;
-}
 const Home: React.FC = () => {
-  const [shows, setShows] = useState<AllShowsState>({
-    loading: false,
-    showData: [] as AllShowsResults[],
-    errorMessage: "",
-  });
-  useEffect(() => {
-    setShows({ ...shows, loading: true });
-    getAllShows()
-      .then((res) =>
-        setShows({
-          ...shows,
-          loading: false,
-          showData: res.data,
-        })
-      )
-      .catch((err) =>
-        setShows({
-          ...shows,
-          loading: false,
-          errorMessage: err.message,
-        })
-      );
-    // eslint-disable-next-line
-  }, []);
-  const { loading, showData, errorMessage } = shows;
+  const { shows, categories } = useContext(StoreContext);
+  
+  const { loading, showsData, errorMessage } = shows;
   return (
     <div className="movie-display" id="movie-display">
       {errorMessage && <p>{errorMessage}</p>}
@@ -42,9 +14,10 @@ const Home: React.FC = () => {
         <h1>Loading...</h1>
       ) : (
         <div>
-          <h2>Top movies for you</h2>
+          {console.log(categories)}
+          <h2>Movies for you</h2>
           <div className="movie-list">
-            {showData.map((item, index) => {
+            {showsData?.map((item, index) => {
               return (
                 <MovieDisplay
                   key={index}

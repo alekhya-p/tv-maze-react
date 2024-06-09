@@ -4,7 +4,7 @@ export interface AllShowsResults {
     name: string;
     type: string;
     language: string;
-    genres?: (string | null)[] | null;
+    genres?: (string | null)[] | null | undefined;
     status: string;
     runtime?: number | null;
     averageRuntime: number;
