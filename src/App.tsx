@@ -5,7 +5,8 @@ import { StoreContextProvider } from './store/StoreContext'
 import { Route, Routes } from "react-router-dom";
 import Shows from './views/Shows/Shows'
 import PopularShows from './views/PopularShows/PopularShows'
-import SearchDetails from './components/SearchDetails/SearchDetails';
+import SearchDetails from './views/SearchDetails/SearchDetails';
+import DetailsPage from './views/DetailsPage/DetailsPage';
 
 function App() {
 
@@ -14,14 +15,13 @@ function App() {
     <StoreContextProvider>
     <div className='app'>
     <NavBar/>
-    {/* <SearchDetails /> */}
       <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='/shows' element={<Shows />}></Route>
-        <Route path='/popularShows' element={<PopularShows />}></Route>
-        <Route path='/searchPage' element={<SearchDetails />}></Route>
+        <Route path='/' Component={Home}></Route>
+        <Route path='/shows' Component={Shows}></Route>
+        <Route path='/popularShows' Component={PopularShows}></Route>
+        <Route path='/searchPage/:query' Component={SearchDetails}></Route>
+        <Route path='/tvShow/:id' Component={DetailsPage}></Route>
       </Routes>
-        {/* <Home /> */}
       </div>
     </StoreContextProvider>
     </>

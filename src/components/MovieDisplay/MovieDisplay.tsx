@@ -1,11 +1,22 @@
 import React from 'react'
 import './MovieDisplay.css'
 
-const MovieDisplay = (props: { key: number; id: number; image: string | undefined; }) => {
+interface Props {
+  key: number,
+  id: number,
+  image: string | undefined,
+  handleClick: (event:React.MouseEvent<HTMLDivElement>) => void;
+}
+const MovieDisplay: React.FC<Props> = ({
+  key,
+  id,
+  image,
+  handleClick
+}) => {
   return (
-    <div className='movies'>
+    <div className='movies' onClick={handleClick}>
       <div className='movie-container'>
-        <img className='movie-image' src={props.image} alt="" />
+        <img className='movie-image' src={image} alt="" />
         {/* <div className='movie-info'>
         <p>{props.name}</p>
         <p>{props.rating}/10</p>

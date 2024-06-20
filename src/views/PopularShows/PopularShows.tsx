@@ -7,7 +7,8 @@ import { IShowDetails } from '../../types/showDetailsResults';
 const PopularShows: React.FC = () => {
    const { popularShows } = useContext(StoreContext);
   return (
-    <><h2>Popular Shows for you</h2>
+    <div className='popularShows'>
+      <h2>Popular Shows for you</h2>
     <div className='popular-shows'>
       {popularShows.map((shows: IShowDetails, index: number) => {
         return (
@@ -19,7 +20,8 @@ const PopularShows: React.FC = () => {
           </div>
         );
       })}
-    </div></>
+    </div>
+    </div>
   )
 }
 
