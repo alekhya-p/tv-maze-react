@@ -3,6 +3,7 @@ import './NavBar.css'
 // import searchIcon from '../../assets/search_icon.png'
 import { FaSearch } from 'react-icons/fa'
 import { Link } from "react-router-dom";
+import SearchDetails from '../SearchDetails/SearchDetails';
 
 const NavBar = () => {
   return (
@@ -16,6 +17,7 @@ const NavBar = () => {
       <FaSearch />
       <input className= "input" type="text" placeholder="Search.." name="search" />
       {/* <img src={searchIcon} alt="" /> */}
+      {/* <SearchDetails/> */}
       </div>
     </div>
   )

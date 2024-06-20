@@ -1,0 +1,13 @@
+.Shows-list {
+animation: fadeIn 3s;
+}
+.show-genres-list {
+display: flex;
+overflow-x: scroll;
+scroll-behavior: smooth;
+}
+.show-genres-img {
+    width: 15vw;
+    height: 12em;
+    margin: 10px 5px 10px 0px;
+}

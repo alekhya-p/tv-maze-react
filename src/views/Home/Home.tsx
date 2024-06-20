@@ -14,7 +14,6 @@ const Home: React.FC = () => {
         <h1>Loading...</h1>
       ) : (
         <div>
-          {console.log(categories)}
           <h2>Movies for you</h2>
           <div className="movie-list">
             {showsData?.map((item, index) => {
@@ -22,9 +21,7 @@ const Home: React.FC = () => {
                 <MovieDisplay
                   key={index}
                   id={item.id}
-                  name={item.name}
                   image={item.image.original}
-                  rating={item.rating.average}
                 />
               );
             })}

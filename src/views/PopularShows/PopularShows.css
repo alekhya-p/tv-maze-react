@@ -1,0 +1,7 @@
+.popular-shows {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 30px;
+    gap: 5px;
+    row-gap: 20px;
+}
